@@ -21,7 +21,7 @@ object ExternalStorageCheck {
             val pm = context.packageManager
             try {
                 val pi = pm.getPackageInfo(context.packageName, 0)
-                val ai = pi.applicationInfo
+                val ai = pi.applicationInfo!!
                 return ai.flags and ApplicationInfo.FLAG_EXTERNAL_STORAGE == ApplicationInfo.FLAG_EXTERNAL_STORAGE
             } catch (e: PackageManager.NameNotFoundException) {
                 // ignore
